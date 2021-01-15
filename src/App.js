@@ -15,6 +15,7 @@ import DeleteIcon from '@material-ui/icons/Delete'
 
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { orange, blue } from '@material-ui/core/colors'
+import { Typography, Container } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -28,6 +29,15 @@ const useStyles = makeStyles({
 })
 
 const theme = createMuiTheme({
+  typography: {
+    h2: {
+      fontSize: 36,
+      fontWeight: 'bold',
+    },
+    subtitle1: {
+      marginBottom: 15,
+    }
+  },
   palette: {
     primary: {
       main: blue[500]
@@ -48,7 +58,7 @@ function CheckboxExample() {
 
   return (
     <>
-      <h1>Hello Jac</h1>
+      <h1>Hello 🌏</h1>
       <FormControlLabel
         control={<Checkbox
           checked={checked}
@@ -66,31 +76,39 @@ function CheckboxExample() {
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <header className="App-header">
-          <ButtonStyled />
-          <TextField
-            variant="outlined"
-            color="primary"
-            type="date"
-          />
-          <CheckboxExample />
-          <img src={logo} className="App-logo" alt="logo" />
-          <ButtonGroup variant="contained" color="primary">
-            <Button
-              startIcon={<SaveIcon />}
-            >
-              Save
-            </Button>
+      <Container maxWidth="sm">
+        <div className="App">
+          <header className="App-header">
+            <Typography variant="h2">
+              Welcome to MUI
+            </Typography>
+            <Typography variant="subtitle1">
+              Learn how to use Material UI
+            </Typography>
+            <ButtonStyled />
+            <TextField
+              variant="outlined"
+              color="primary"
+              type="date"
+            />
+            <CheckboxExample />
+            <img src={logo} className="App-logo" alt="logo" />
+            <ButtonGroup variant="contained" color="primary">
+              <Button
+                startIcon={<SaveIcon />}
+              >
+                Save
+              </Button>
 
-            <Button
-              startIcon={<DeleteIcon />}
-            >
-              Discard
-            </Button>
-          </ButtonGroup>
-        </header>
-      </div>
+              <Button
+                startIcon={<DeleteIcon />}
+              >
+                Discard
+              </Button>
+            </ButtonGroup>
+          </header>
+        </div>
+      </Container>
     </ThemeProvider>
   );
 }
